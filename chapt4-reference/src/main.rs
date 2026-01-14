@@ -13,8 +13,12 @@ fn first_word(s: &str) -> &str {
 
 fn main() {
     let s = String::from("hello world");
-
     let word = first_word(&s); //returns first word found where string is separated by spaces
-
     println!("{word}");
+
+    let a = [1, 2, 3, 4, 5];
+    let slice = &a[1..3];
+    if slice == &[2, 3] {
+        println!("equal slices");
+    };
 }
