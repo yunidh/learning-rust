@@ -1,22 +1,20 @@
-fn first_word(s: &String) -> usize {
+fn first_word(s: &str) -> &str {
     let bytes = s.as_bytes();
 
+    //slicing reference for string
     for (i, &item) in bytes.iter().enumerate() {
         if item == b' ' {
-            return i;
+            return &s[0..i];
         }
     }
 
-    s.len()
+    return &s[..];
 }
 
 fn main() {
-    let mut s = String::from("hello world");
+    let s = String::from("hello world");
 
-    let word = first_word(&s); // word will get the value 5
+    let word = first_word(&s); //returns first word found where string is separated by spaces
 
-    s.clear(); // this empties the String, making it equal to ""
     println!("{word}");
-    // word still has the value 5 here, but s no longer has any content that we
-    // could meaningfully use with the value 5, so word is now totally invalid!
 }
